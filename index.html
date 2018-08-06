@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>生成头图</title>
+</head>
+
+<body>
+    <label>显示文字</label>
+    <input id="text" type="text" />
+
+    <br>
+
+    <button id='btn'>生成图片</button>
+
+    <br>
+
+    <canvas id="drawing" width="960" height="540">A drawing of something.</canvas>
+    <style>
+    </style>
+    <script>
+        var canvas = document.getElementById('drawing');
+        var context = canvas.getContext("2d");
+        var image = new Image();
+        image.src = 'bg.png';
+        var btn = document.getElementById('btn');
+        btn.onclick = function () {
+            context.drawImage(image, 0, 0, canvas.width, canvas.height);
+            var input = document.getElementById('text');
+            var text = input.value;
+            if (text) {
+                console.log(text);
+                context.textAlign = 'center'
+                context.fillStyle = '#fff';
+                context.font = "36px Georgia";
+                context.fillText(text, 480, 130);
+            } else {
+                alert('请输入文字');
+            }
+        }
+    </script>
+</body>
+
+</html>
