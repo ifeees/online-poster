@@ -25,7 +25,8 @@
         var canvas = document.getElementById('drawing');
         var context = canvas.getContext("2d");
         var image = new Image();
-        image.src = 'bg.png';
+        image.setAttribute("crossOrigin", 'Anonymous'); // 解决跨域
+        image.src = 'http://pazgkbbu5.bkt.clouddn.com/bg.png';
         var btn = document.getElementById('btn');
         btn.onclick = function () {
             context.drawImage(image, 0, 0, canvas.width, canvas.height);
@@ -37,6 +38,23 @@
                 context.fillStyle = '#fff';
                 context.font = "36px Georgia";
                 context.fillText(text, 480, 130);
+
+                setTimeout(function () {
+                    var exportImage = canvas.toDataURL('image/png');
+                    // console.log(exportImage);
+
+                    // 下载功能代码借鉴 https://juejin.im/post/5a31dbc951882510b27563b9
+                    var saveLink = document.createElementNS('http://www.w3.org/1999/xhtml', 'a');
+                    saveLink.href = exportImage;
+                    // 设置下载图片的名称
+                    saveLink.download = text + '.png';
+                    //下载图片
+                    var event = document.createEvent('MouseEvents');
+                    event.initMouseEvent('click', true, false, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
+                    saveLink.dispatchEvent(event);
+
+                }, 1000);
+
             } else {
                 alert('请输入文字');
             }
