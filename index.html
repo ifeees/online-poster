@@ -10,8 +10,7 @@
 </head>
 
 <body>
-    支持一下文字的显示，感谢
-    <a href="https://www.youziku.com/webfont/cssdetail/9F284B4A1A087D16069A812EAAAAA635">有字库</a 提供免费字体资源。 <p>显示文字预览导出图片1234567890第期前端晚自修</p>
+
     <label>显示文字：</label>
     <input id="text" type="text" />
 
@@ -20,28 +19,41 @@
 
     <button id='btn'>预览图片</button>
     <button id='exp'>导出图片</button>
-
+    <p class="intro">支持以下文字的显示，感谢
+        <a href="https://www.youziku.com/webfont/cssdetail/9F284B4A1A087D16069A812EAAAAA635">有字库</a>
+        提供免费字体资源。
+    </p>
+    <p class="text">显示文字预览导出图片1234567890第期前端晚自修</p>
     <br>
     <br>
 
     <canvas id="drawing" width="960" height="540">A drawing of something.</canvas>
     <style>
         @font-face {
-            font-family: 'chenjishiguyun-13c9446909183ba';
-            src: url('//cdn.webfont.youziku.com/webfonts/nomal/99258/45811/5b6d985af629d919b4accb32.gif?r=82302682580');
-            src: url('//cdn.webfont.youziku.com/webfonts/nomal/99258/45811/5b6d985af629d919b4accb32.gif?r=82302682580?#iefix') format('embedded-opentype'), url('//cdn.webfont.youziku.com/webfonts/nomal/99258/45811/5b6d985af629d919b4accb32.png?r=82302682580') format('woff2'), url('//cdn.webfont.youziku.com/webfonts/nomal/99258/45811/5b6d985af629d919b4accb32.bmp?r=82302682580') format('woff'), url('//cdn.webfont.youziku.com/webfonts/nomal/99258/45811/5b6d985af629d919b4accb32.jpg?r=82302682580') format('truetype');
+            font-family: 'chenjishiguyun-13c94e564b183ba';
+            src: url('//cdn.webfont.youziku.com/webfonts/nomal/99258/45811/5b6d9ae4f629d919b4accb33.gif?r=82303333002');
+            src: url('//cdn.webfont.youziku.com/webfonts/nomal/99258/45811/5b6d9ae4f629d919b4accb33.gif?r=82303333002?#iefix') format('embedded-opentype'), url('//cdn.webfont.youziku.com/webfonts/nomal/99258/45811/5b6d9ae4f629d919b4accb33.png?r=82303333002') format('woff2'), url('//cdn.webfont.youziku.com/webfonts/nomal/99258/45811/5b6d9ae4f629d919b4accb33.bmp?r=82303333002') format('woff'), url('//cdn.webfont.youziku.com/webfonts/nomal/99258/45811/5b6d9ae4f629d919b4accb33.jpg?r=82303333002') format('truetype');
             font-weight: normal;
             font-style: normal;
         }
 
-        .css13c9446909183ba {
-            font-family: 'chenjishiguyun-13c9446909183ba';
+        .css13c94e564b183ba {
+            font-family: 'chenjishiguyun-13c94e564b183ba';
         }
 
         * {
             font-size: 20px;
-            font-family: 'chenjishiguyun-13c9446909183ba';
+            font-family: 'chenjishiguyun-13c94e564b183ba';
             text-align: center;
+        }
+
+        .intro {
+            font-size: 12px;
+        }
+
+        .text {
+            font-size: 12px;
+            text-decoration: underline;
         }
     </style>
     <script>
