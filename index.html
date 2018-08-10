@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href='http://cdn.webfont.youziku.com/webfonts/nomal/99258/46865/5b6d922df629d919b4accb27.css' rel='stylesheet' type='text/css'
+    />
     <title>生成头图</title>
 </head>
 
@@ -14,12 +16,16 @@
 
     <br>
 
-    <button id='btn'>生成图片</button>
+    <button id='btn'>预览图片</button>
+    <button id='exp'>导出图片</button>
 
     <br>
 
     <canvas id="drawing" width="960" height="540">A drawing of something.</canvas>
     <style>
+        * {
+            font-family: 'Source-Han-Ligh13c92c4902183ba';
+        }
     </style>
     <script>
         var canvas = document.getElementById('drawing');
@@ -28,6 +34,8 @@
         image.setAttribute("crossOrigin", 'Anonymous'); // 解决跨域
         image.src = 'http://pazgkbbu5.bkt.clouddn.com/bg.png';
         var btn = document.getElementById('btn');
+        var exp = document.getElementById('exp');
+
         btn.onclick = function () {
             context.drawImage(image, 0, 0, canvas.width, canvas.height);
             var input = document.getElementById('text');
@@ -36,28 +44,32 @@
                 console.log(text);
                 context.textAlign = 'center'
                 context.fillStyle = '#fff';
-                context.font = "36px Georgia";
+                context.font = "36px Ligh13c92c4902183ba";
                 context.fillText(text, 480, 130);
 
-                setTimeout(function () {
-                    var exportImage = canvas.toDataURL('image/png');
-                    // console.log(exportImage);
 
-                    // 下载功能代码借鉴 https://juejin.im/post/5a31dbc951882510b27563b9
-                    var saveLink = document.createElementNS('http://www.w3.org/1999/xhtml', 'a');
-                    saveLink.href = exportImage;
-                    // 设置下载图片的名称
-                    saveLink.download = text + '.png';
-                    //下载图片
-                    var event = document.createEvent('MouseEvents');
-                    event.initMouseEvent('click', true, false, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
-                    saveLink.dispatchEvent(event);
-
-                }, 1000);
 
             } else {
                 alert('请输入文字');
             }
+        }
+
+        exp.onclick = function () {
+            setTimeout(function () {
+                var exportImage = canvas.toDataURL('image/png');
+                // console.log(exportImage);
+
+                // 下载功能代码借鉴 https://juejin.im/post/5a31dbc951882510b27563b9
+                var saveLink = document.createElementNS('http://www.w3.org/1999/xhtml', 'a');
+                saveLink.href = exportImage;
+                // 设置下载图片的名称
+                saveLink.download = text + '.png';
+                //下载图片
+                var event = document.createEvent('MouseEvents');
+                event.initMouseEvent('click', true, false, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
+                saveLink.dispatchEvent(event);
+
+            }, 1000);
         }
     </script>
 </body>
